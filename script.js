@@ -23,9 +23,15 @@ for (let i = 0; i < WORD_LENGTH * AMOUNT_OF_GUESSES; i++) {
   guessGrid.append(tile);
 }
 
-const previousLocal = localStorage.getItem(`${PREVIOUS_PREFIX}-GUESS`);
-if (previousLocal) {
-  localStorage.removeItem(`${PREVIOUS_PREFIX}-GUESS`);
+var arr = [];
+for (var i = 0; i < localStorage.length; i++) {
+  if (localStorage.key(i).substring(0, 7) == "WORDLE-") {
+    arr.push(localStorage.key(i));
+  }
+}
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i] === `${PREFIX}-GUESS`) continue;
+  localStorage.removeItem(arr[i]);
 }
 
 const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
