@@ -10,6 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 1em;
   font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
@@ -79,6 +81,8 @@ body {
   grid-template-rows: repeat(var(--AMOUNT-OF-GUESSES, 6), 4em);
   gap: 0.25em;
   margin-bottom: 1em;
+  user-select: none;
+  pointer-events: none;
 }
 
 .tile {
@@ -208,5 +212,17 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .guess-grid {
+    grid-template-columns: repeat(var(--WORD-LENGTH, 5), 5em);
+    grid-template-rows: repeat(var(--AMOUNT-OF-GUESSES, 6), 5em);
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(20, minmax(auto, 1.75em));
+    grid-auto-rows: 4em;
   }
 }
