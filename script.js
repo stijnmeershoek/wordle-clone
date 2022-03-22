@@ -2,7 +2,6 @@ import { targetWords, dictionary } from "./modules/data.js";
 
 const currentDate = new Date();
 const PREFIX = `WORDLE-${currentDate.getDate()}`;
-const PREVIOUS_PREFIX = `WORDLE-${Number(currentDate.getDate()) - 1}`;
 const WORD_LENGTH = 5;
 const AMOUNT_OF_GUESSES = 6;
 const FLIP_ANIM_DURATION = 500;
